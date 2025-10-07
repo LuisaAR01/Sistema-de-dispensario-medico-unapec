@@ -1,0 +1,143 @@
+// #include <iostream>
+// using namespace std;
+
+// int main()
+// {
+//     string nombre;
+//     int edad;
+
+//     // Entrada
+//     cout << "Ingresa tu nombre: ";
+//     cin >> nombre;
+//     cout << "Ingresa tu edad: ";
+//     cin >> edad;
+
+//     // Salida
+//     cout << "Hola " << nombre << ", tienes " << edad << " años." << endl;
+
+//     return 0;
+// }
+
+//---------------------------------------------------------------------------------
+
+// ejemplo de como seria una coneccion con una base de datos
+
+// #include <iostream>
+// #include "sqlite3.h"
+
+// using namespace std;
+
+// // Función callback para mostrar resultados
+// static int callback(void *data, int argc, char **argv, char **azColName)
+// {
+//     for (int i = 0; i < argc; i++)
+//     {
+//         cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL") << endl;
+//     }
+//     cout << endl;
+//     return 0;
+// }
+
+// int main()
+// {
+//     sqlite3 *DB;
+//     char *errorMessage;
+
+//     // Abrir o crear base de datos
+//     int exit = sqlite3_open("mi_base.db", &DB);
+//     if (exit)
+//     {
+//         cerr << "Error al abrir la base de datos: " << sqlite3_errmsg(DB) << endl;
+//         return -1;
+//     }
+//     cout << "Base de datos abierta correctamente!" << endl;
+
+//     // Crear tabla
+//     string sql = "CREATE TABLE IF NOT EXISTS PERSONAS("
+//                  "ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+//                  "NOMBRE TEXT NOT NULL, "
+//                  "EDAD INT NOT NULL);";
+
+//     exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &errorMessage);
+//     if (exit != SQLITE_OK)
+//     {
+//         cerr << "Error creando tabla: " << errorMessage << endl;
+//         sqlite3_free(errorMessage);
+//     }
+//     else
+//     {
+//         cout << "Tabla creada correctamente!" << endl;
+//     }
+
+//     // Insertar datos
+//     sql = "INSERT INTO PERSONAS (NOMBRE, EDAD) VALUES('Saulo', 25);";
+//     exit = sqlite3_exec(DB, sql.c_str(), NULL, 0, &errorMessage);
+//     if (exit != SQLITE_OK)
+//     {
+//         cerr << "Error insertando datos: " << errorMessage << endl;
+//         sqlite3_free(errorMessage);
+//     }
+//     else
+//     {
+//         cout << "Datos insertados correctamente!" << endl;
+//     }
+
+//     // Consultar datos
+//     sql = "SELECT * FROM PERSONAS;";
+//     exit = sqlite3_exec(DB, sql.c_str(), callback, 0, &errorMessage);
+//     if (exit != SQLITE_OK)
+//     {
+//         cerr << "Error consultando datos: " << errorMessage << endl;
+//         sqlite3_free(errorMessage);
+//     }
+
+//     // Cerrar base de datos
+//     sqlite3_close(DB);
+
+//     return 0;
+// }
+
+
+
+
+
+
+
+ //     (opcion == 1)
+    //     {
+    //         string Descripcion;
+    //         int Estado;
+
+    //         cout << "Ingrese una descripción del producto: ";
+    //         cin >> Descripcion;
+    //         cout << "Ingrese su estado(yo tampoco tengo una puta idea de que es eso): ";
+    //         cin >> Estado;
+
+    //         string sqlInsert = "INSERT INTO TiposFarmacos (Descripcion, Estado) VALUES('" + Descripcion + "', " + to_string(Estado) + ");";
+    //         ejecutarSQL(DB, sqlInsert.c_str());
+    //     }
+    //     else if (opcion == 2)
+    //     {
+    //         cout << "Lista de personas:" << endl;
+
+    //         const char *sqlSelect = "SELECT * FROM TiposFarmacos;";
+
+    //         sqlite3_stmt *stmt;
+    //         if (sqlite3_prepare_v2(DB, sqlSelect, -1, &stmt, NULL) == SQLITE_OK)
+    //         {
+    //             while (sqlite3_step(stmt) == SQLITE_ROW)
+    //             {
+    //                 int id = sqlite3_column_int(stmt, 0);
+    //                 const unsigned char *Descripcion = sqlite3_column_text(stmt, 1);
+    //                 const unsigned char *Estado = sqlite3_column_text(stmt, 2);
+
+    //                 cout << "ID: " << id << " | Nombre: " << Descripcion << " | Edad: " << Estado << endl;
+    //             }
+    //         }
+    //         sqlite3_finalize(stmt);
+    //     }
+
+    // } while (opcion != 4);
+
+    sqlite3_close(DB);
+    // cout << "Programa finalizado." << endl;

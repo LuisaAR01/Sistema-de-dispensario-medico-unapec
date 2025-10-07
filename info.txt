@@ -1,0 +1,8 @@
+pa crear el programa usamos este codigo en la terminal
+
+g++ gun.cpp -x c sqlite3.c -o programa
+o si no funciona, ponle esta
+g++ gun.cpp -lsqlite3 -o programa
+
+
+y se creara un programa.exe 

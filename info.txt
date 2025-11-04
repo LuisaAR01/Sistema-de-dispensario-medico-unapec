@@ -3,6 +3,9 @@ pa crear el programa usamos este codigo en la terminal
 g++ gun.cpp -x c sqlite3.c -o programa
 o si no funciona, ponle esta
 g++ gun.cpp -lsqlite3 -o programa
+como ahora tiene un encriptador y le falta lcrypto en alguna parte se compila con esto
+g++ guncopycopy.cpp -lsqlite3 -lcrypto -o programa
+
 
 
 y se creara un programa.exe 
